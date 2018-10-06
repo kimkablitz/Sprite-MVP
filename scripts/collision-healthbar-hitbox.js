@@ -190,13 +190,17 @@ var eventHandlers = {
     curHitPoints = curHitPoints - damage;
     healthbar.applyDamageRyu(curHitPoints);
     //reset the fighting arena when ryu has been defeated
-    if(curHitPoints <= 0){resetFightArena("Goku Wins!");}
+    if (curHitPoints <= 0) {
+      resetFightArena("Goku Wins!");
+    }
   },
   applyDamageGoku: function(damage) {
     curHitPoints = curHitPoints - damage;
     healthbar.applyDamageGoku(curHitPoints);
     //reset the fighting arena when goku has been defeated
-    if(curHitPoints <= 0){resetFightArena("Ryu Wins!");}
+    if (curHitPoints <= 0) {
+      resetFightArena("Ryu Wins!");
+    }
   },
   intializeGameClick: $(".newGame").click(function() {
     healthbar.resetGame();
@@ -245,7 +249,7 @@ $(document).keydown(function(event) {
       if (collision && hitbox) {
         hitboxQA.gokuPunch();
         eventHandlers.applyDamageRyu(5);
-				$(".ryu").addClass("ryu-damaged damaged-p2");
+        $(".ryu").addClass("ryu-damaged damaged-p2");
       }
       break;
     // user presses the "S" KICK key
@@ -253,7 +257,7 @@ $(document).keydown(function(event) {
       if (collision && hitbox) {
         hitboxQA.gokuKick();
         eventHandlers.applyDamageRyu(10);
-				$(".ryu").addClass("ryu-damaged damaged-p2");
+        $(".ryu").addClass("ryu-damaged damaged-p2");
       }
       break;
 
@@ -263,7 +267,7 @@ $(document).keydown(function(event) {
       if (collision && hitbox) {
         hitboxQA.ryuPunch();
         eventHandlers.applyDamageGoku(5);
-				$(".goku").addClass("goku-damaged damaged-p1");
+        $(".goku").addClass("goku-damaged damaged-p1");
       }
       break;
     // user presses the "K" KICK key
@@ -271,50 +275,50 @@ $(document).keydown(function(event) {
       if (collision && hitbox) {
         hitboxQA.ryuKick();
         eventHandlers.applyDamageGoku(10);
-				$(".goku").addClass("goku-damaged damaged-p1");
+        $(".goku").addClass("goku-damaged damaged-p1");
       }
       break;
   }
 });
 
-$(document).keyup(function (event) {
-	switch (event.which) {
-		//GOKU DAMAGE DETECT
-		//user presses the "A" PUNCH key
-		case 65:
-			if (collision && hitbox) {
-				setTimeout(function (event) {
-					$(".ryu").removeClass("ryu-damaged damaged-p2");
-				}, 150);
-				break;
-			}
-			break;
-			// user presses the "S" KICK key
-		case 83:
-			if (collision && hitbox) {
-				setTimeout(function (event) {
-					$(".ryu").removeClass("ryu-damaged damaged-p2");
-				}, 150);
-				break;
-			}
-			break;
+$(document).keyup(function(event) {
+  switch (event.which) {
+    //GOKU DAMAGE DETECT
+    //user presses the "A" PUNCH key
+    case 65:
+      if (collision && hitbox) {
+        setTimeout(function(event) {
+          $(".ryu").removeClass("ryu-damaged damaged-p2");
+        }, 150);
+        break;
+      }
+      break;
+    // user presses the "S" KICK key
+    case 83:
+      if (collision && hitbox) {
+        setTimeout(function(event) {
+          $(".ryu").removeClass("ryu-damaged damaged-p2");
+        }, 150);
+        break;
+      }
+      break;
 
-			//RYU DAMAGE DETECT
-			//user presses the "J" PUNCH key
-		case 74:
-			if (collision && hitbox) {
-				setTimeout(function (event) {
-					$(".goku").removeClass("goku-damaged damaged-p1");
-				}, 100);
-			}
-			break;
-			// user presses the "K" KICK key
-		case 75:
-			if (collision && hitbox) {
-				setTimeout(function (event) {
-					$(".goku").removeClass("goku-damaged damaged-p1");
-				}, 100);
-			}
-			break;
-	}
+    //RYU DAMAGE DETECT
+    //user presses the "J" PUNCH key
+    case 74:
+      if (collision && hitbox) {
+        setTimeout(function(event) {
+          $(".goku").removeClass("goku-damaged damaged-p1");
+        }, 100);
+      }
+      break;
+    // user presses the "K" KICK key
+    case 75:
+      if (collision && hitbox) {
+        setTimeout(function(event) {
+          $(".goku").removeClass("goku-damaged damaged-p1");
+        }, 100);
+      }
+      break;
+  }
 });
